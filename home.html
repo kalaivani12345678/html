@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="dist/css/bootstrap.css"/>
+        <script src="dist/js/bootstrap.bundle.js"> </script>
+        <script>
+            const gethome = () =>{
+                var xmlhttp = new XMLHttpRequest();  // object created of XMLHttpRequest class
+                xmlhttp.open("GET","welcome.html"); // generated url based on get method
+                xmlhttp.send();  // send request to above generated url
+
+
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+              };
+            }
+
+        /*
+            0	UNSENT	Client has been created. open() not called yet.
+            1	OPENED	open() has been called.
+            2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+            3	LOADING	Downloading; responseText holds partial data.
+            4	DONE	The operation is complete.
+
+        */
+
+            const getabout = () =>{
+                var xmlhttp = new XMLHttpRequest();  // object created of XMLHttpRequest class
+                xmlhttp.open("GET","about.html"); // generated url based on get method
+                xmlhttp.send();  // send request to above generated url
+
+
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+              };
+            }
+
+            const getproject = () =>{
+                var xmlhttp = new XMLHttpRequest();  // object created of XMLHttpRequest class
+                xmlhttp.open("GET","project.html"); // generated url based on get method
+                xmlhttp.send();  // send request to above generated url
+
+
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ajaxdata").innerHTML = this.responseText;
+                }
+              };
+            }
+        </script>
+    </head>
+    <body onload="gethome()">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top p-3">
+            <div class="container">
+              <a class="navbar-brand" href="javascript:void(0)"> JavaScript AJAX </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item me-4">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="gethome()"> Home </a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="getabout()"> About Us </a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="getproject()"> Our Project </a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="getservice()"> Our Services </a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link active" href="javascript:void(0)" onclick="getcontact()"> Contact Us </a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="text" placeholder="Search">
+                  <button class="btn btn-primary" type="button"> Search </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+          <section id="ajaxdata"></section>
+    </body>
+</html>
